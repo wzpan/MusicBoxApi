@@ -1,10 +1,6 @@
 NetEaseMusicApi
 ===============
 
-.. image:: https://img.shields.io/github/license/mashape/apistatus.svg   :target: 
-.. image:: https://img.shields.io/pypi/v/MusicBoxApi.svg   :target: https://pypi.python.org/pypi/MusicBoxApi/)
-.. image:: https://img.shields.io/pypi/pyversions/Django.svg   :target: 		      
-
 NetEase Music Api that comes from musicbox project. Ui-related parts are elimated, so as to be used at other places.
 
 **Install**
