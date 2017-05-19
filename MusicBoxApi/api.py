@@ -250,7 +250,7 @@ class NetEase(object):
                                            data=query,
                                            headers=self.header,
                                            timeout=default_timeout)
-            #self.session.cookies.save()
+            self.session.cookies.save()
 
         connection.encoding = 'UTF-8'
         return connection.text
