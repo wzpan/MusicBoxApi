@@ -17,7 +17,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='MusicBoxApi',
 
-    version='1.0.5',
+    version='1.0.6',
 
     description='NetEase Music Api',
     long_description=long_description,
@@ -52,7 +52,7 @@ setup(
         # simple. Or you can use find_packages().
         packages=['MusicBoxApi',],
 
-    install_requires=['requests', 'BeautifulSoup4', 'pycrypto', 'future'],
+    install_requires=['requests', 'BeautifulSoup4', 'pycrypto', 'future', 'crypto'],
 
     # List additional groups of dependencies here
         extras_require={},
