@@ -6,6 +6,7 @@ NetEase Music Api that comes from musicbox project. Ui-related parts are elimate
 **Install**
 
 .. code:: shell
+	  
     pip install MusicBoxApi
 
 

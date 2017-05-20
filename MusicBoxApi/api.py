@@ -666,13 +666,6 @@ class NetEase(object):
 
                 temp.append(song_info)
 
-            # 使用新的协议获取音乐地址
-            ids = [song_info['song_id'] for song_info in temp]
-            urls = geturls_new_api(ids)
-            i = 0
-            for song_info in temp:
-                song_info['mp3_url'] = urls[i]
-                i += 1
 
 
         elif dig_type == 'artists':
