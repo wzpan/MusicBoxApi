@@ -17,7 +17,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='MusicBoxApi',
 
-    version='1.0.3',
+    version='1.0.4',
 
     description='NetEase Music Api',
     long_description=long_description,

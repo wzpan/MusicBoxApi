@@ -170,6 +170,14 @@ def geturl_new_api(song):
     return url, quality
 
 
+def geturls_new_api(song_ids):
+    """ 批量获取音乐的地址 """
+    br_to_quality = {128000: 'MD 128k', 320000: 'HD 320k'}
+    alters = NetEase().songs_detail_new_api(song_ids)
+    urls = [alter['url'] for alter in alters]
+    return urls
+
+
 class NetEase(object):
 
     def __init__(self):
@@ -657,6 +665,15 @@ class NetEase(object):
                     song_info['artist'] = '未知艺术家'
 
                 temp.append(song_info)
+
+            # 使用新的协议获取音乐地址
+            ids = [song_info['song_id'] for song_info in temp]
+            urls = geturls_new_api(ids)
+            i = 0
+            for song_info in temp:
+                song_info['mp3_url'] = urls[i]
+                i += 1
+
 
         elif dig_type == 'artists':
             artists = []
