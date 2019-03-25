@@ -46,6 +46,12 @@ from .storage import Storage
 from .utils import notify
 from . import logger
 
+
+class TooManyTracksException(Exception):
+    """The playlist contains more than 1000 tracks."""
+    pass
+
+
 # 歌曲榜单地址
 top_list_all = {
     0: ['云音乐新歌榜', '/discover/toplist?id=3779629'],
@@ -440,7 +446,16 @@ class NetEase(object):
             playlist_id)
         try:
             data = self.httpRequest('GET', action)
-            return data['result']['tracks']
+            if data['code'] == 200:
+                result = data['result']
+                length = result['trackCount']
+                if length > 1000:
+                    raise TooManyTracksException("There are {} (> 1000) in the playlist.".format(length))
+                else:
+                    return data['result']['tracks']
+            else:
+                log.error(data['code'])
+                return []
         except requests.exceptions.RequestException as e:
             log.error(e)
             return []
