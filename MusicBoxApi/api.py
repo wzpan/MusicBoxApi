@@ -289,13 +289,15 @@ class NetEase(object):
             return {'code': 501}
 
     # 手机登录
-    def phone_login(self, username, password):
+    def phone_login(self, username, password, countrycode = None):
         action = 'https://music.163.com/weapi/login/cellphone'
         text = {
             'phone': username,
             'password': password,
             'rememberLogin': 'true'
         }
+        if countrycode is not None:
+            text['countrycode'] = countrycode
         data = encrypted_request(text)
         try:
             return self.httpRequest('Login_POST', action, data)
