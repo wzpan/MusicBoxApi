@@ -199,11 +199,11 @@ class NetEase(object):
             'User-Agent':
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36'  # NOQA
         }
-        self.cookies = {'appver': '1.5.2'}
+        self.cookies = {'appver': '1.5.2', 'os': 'osx'}
         self.playlist_class_dict = {}
         self.session = requests.Session()
         self.storage = Storage()
-        self.session.cookies = LWPCookieJar(self.storage.cookie_path)
+        self.session.cookies = requests.utils.add_dict_to_cookiejar(LWPCookieJar(self.storage.cookie_path), self.cookies)
         try:
             self.session.cookies.load()
             cookie = ''
